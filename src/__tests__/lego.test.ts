@@ -31,27 +31,41 @@ test('Event off', () => {
   lego.event.off('test', listener);
 });
 
-test('Command map', () => {
+test('Command on', () => {
   const arg1 = { prop1: '1', prop2: 2 };
   const command = (obj: object, num: number, str: string) => {
     expect(obj).toMatchObject(arg1);
     expect(num).toBe(1);
     expect(str).toBe('arg');
   };
-  lego.command.map('test', command);
+  lego.command.on('test', command);
   lego.event.emit('test', arg1, 1, 'arg');
   //
-  lego.command.unmap('test', command);
+  lego.command.off('test', command);
 });
 
-test('Command unmap', () => {
+test('Command off', () => {
   const command = () => {
     throw new Error('Executing unmaped command');
   };
 
-  lego.command.map('test', command);
-  lego.command.unmap('test', command);
+  lego.command.on('test', command);
+  lego.command.off('test', command);
   lego.event.emit('test');
+});
+
+test('Command once', () => {
+  let execCount = 0;
+  const command = () => {
+    ++execCount;
+  };
+  lego.command.once('test', command);
+  lego.event.emit('test');
+  lego.event.emit('test');
+  lego.event.emit('test');
+  lego.event.emit('test');
+
+  expect(execCount).toBe(1);
 });
 
 test('Command & sub command', () => {
@@ -64,10 +78,10 @@ test('Command & sub command', () => {
       expect(args).toMatchObject([]);
     });
   };
-  lego.command.map('test', command);
+  lego.command.on('test', command);
   lego.event.emit('test', arg1, 1, 'arg');
   //
-  lego.command.unmap('test', command);
+  lego.command.off('test', command);
 });
 
 test('Command & sub command with payload', () => {
@@ -80,10 +94,10 @@ test('Command & sub command with payload', () => {
       expect(arg).toMatchObject(theObj);
     });
   };
-  lego.command.map('test', command);
+  lego.command.on('test', command);
   lego.event.emit('test', theObj, 1, 'arg');
   //
-  lego.command.unmap('test', command);
+  lego.command.off('test', command);
 });
 
 test('Command & sub command with payload and guard', () => {
@@ -99,16 +113,19 @@ test('Command & sub command with payload and guard', () => {
         expect(arg).toMatchObject(theObj);
       });
     lego.command
-      .guard(() => true, () => false)
+      .guard(
+        () => true,
+        () => false,
+      )
       .payload(theObj)
       .execute(() => {
         throw new Error('Guards passed');
       });
   };
-  lego.command.map('test', command);
+  lego.command.on('test', command);
   lego.event.emit('test', theObj, 1, 'arg');
   //
-  lego.command.unmap('test', command);
+  lego.command.off('test', command);
 });
 
 test('Command & sub command with multiple payloads and guards', () => {
@@ -128,16 +145,19 @@ test('Command & sub command with multiple payloads and guards', () => {
         expect(arg).toBe(0);
       });
     lego.command
-      .guard(() => true, () => false)
+      .guard(
+        () => true,
+        () => false,
+      )
       .payload(theObj)
       .execute(() => {
         throw new Error('Guards passed');
       });
   };
-  lego.command.map('test', command);
+  lego.command.on('test', command);
   lego.event.emit('test', theObj, 1, 'arg');
   //
-  lego.command.unmap('test', command);
+  lego.command.off('test', command);
 });
 
 test('Observe', () => {

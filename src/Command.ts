@@ -5,18 +5,19 @@ export class Command {
   private _guards: IGuard[] = [];
   private _payloads: any[] = [];
 
-  public map(event: string, command: ICommand): this {
-    lego.event.on(
-      event,
-      Object.defineProperties(this._execute.bind(this, command), {
-        __command: { value: command },
-      }),
-    );
+  public on(event: string, command: ICommand): this {
+    lego.event.on(event, this._getEventCallback(command));
 
     return this;
   }
 
-  public unmap(event: string, command: ICommand): this {
+  public once(event: string, command: ICommand): this {
+    lego.event.once(event, this._getEventCallback(command));
+
+    return this;
+  }
+
+  public off(event: string, command: ICommand): this {
     const ll = lego.event.getListeners(event);
 
     // @ts-ignore
@@ -64,5 +65,11 @@ export class Command {
 
   private _resetGuardsAndPayloads() {
     this.guard().payload();
+  }
+
+  private _getEventCallback(command: ICommand): any {
+    return Object.defineProperties(this._execute.bind(this, command), {
+      __command: { value: command },
+    });
   }
 }

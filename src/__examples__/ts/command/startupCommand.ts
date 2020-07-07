@@ -6,7 +6,7 @@ import { loadCompleteCommand } from './loadCompleteCommand';
 
 export function startupCommand(): void {
   lego.command
-    .map(ViewEvents.Load.Complete, loadCompleteCommand)
-    .map(ViewEvents.GameScene.Ready, gameSceneReadyCommand)
-    .map(ViewEvents.CellView.Click, cellClickCommand);
+    .once(ViewEvents.Load.Complete, loadCompleteCommand)
+    .once(ViewEvents.GameScene.Ready, gameSceneReadyCommand)
+    .on(ViewEvents.CellView.Click, cellClickCommand);
 }
