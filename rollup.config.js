@@ -6,7 +6,7 @@ import pkg from './package.json';
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx'];
 
-const name = 'pixiGrid';
+const name = 'lego';
 
 export default {
     input: './src/index.ts',
