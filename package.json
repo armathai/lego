@@ -1,6 +1,6 @@
 {
     "name": "@armathai/lego",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "description": "Simple, scalable state management",
     "main": "dist/lego.cjs.js",
     "module": "dist/lego.esm.js",
