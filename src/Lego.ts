@@ -17,6 +17,10 @@ class Lego implements AbstractLego {
         this._command = new Command(this);
     }
 
+    public not(fn: (...args: unknown[]) => boolean): (...args: unknown[]) => boolean {
+        return (...args) => !fn(...args);
+    }
+
     public get observe(): AbstractObserve {
         return this._observe;
     }
