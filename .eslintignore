@@ -1,2 +1,2 @@
 .eslintrc.js
-packages/lego/dist/**/*
+**/dist/**/*

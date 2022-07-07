@@ -19,11 +19,11 @@
     ],
     "homepage": "https://github.com/armathai/lego#readme",
     "scripts": {
-        "_clean": "rimraf dist && rimraf tsconfig.tsbuildinfo",
+        "clean": "rimraf dist && rimraf tsconfig.tsbuildinfo",
         "test": "jest --config jestconfig.json",
-        "lint": "npm run build && eslint 'src/**/*.{js,ts,ts}' --fix",
-        "build": "npm run _clean && tsc --build",
-        "prepublishOnly": "npm test && npm run lint"
+        "lint": "eslint 'src/**/*.{js,ts,ts}'",
+        "build": "npm run clean && tsc --build",
+        "prepublish": "npm run build && npm run test && npm run lint"
     },
     "dependencies": {
         "eventemitter3": "4.0.7"

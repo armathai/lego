@@ -5,11 +5,11 @@
     "license": "ISC",
     "private": true,
     "scripts": {
-        "build:lego": "npm run build --workspace=@armathai/lego",
-        "test:lego": "npm run test --workspace=@armathai/lego",
-        "lint:lego": "npm run lint --workspace=@armathai/lego",
-        "prepublishOnly:lego": "npm run prepublishOnly --workspace=@armathai/lego",
-        "start:example": "npm run start --workspace=@armathai/example"
+        "build:lego": "npm run --workspace=@armathai/lego build",
+        "test:lego": "npm run --workspace=@armathai/lego test",
+        "lint:lego": "npm run --workspace=@armathai/lego lint",
+        "prepublish:lego": "npm run --workspace=@armathai/lego prepublish",
+        "start:example": "npm run --workspace=@armathai/example start"
     },
     "workspaces": {
         "packages": [
@@ -17,17 +17,20 @@
         ]
     },
     "devDependencies": {
-        "jest": "^28.1.2",
-        "ts-jest": "^28.0.5",
-        "@types/jest": "^26.0.19",
         "@parcel/transformer-typescript-types": "^2.6.2",
+        "@types/jest": "^26.0.19",
         "@typescript-eslint/eslint-plugin": "^5.14.0",
         "@typescript-eslint/parser": "^5.14.0",
         "eslint": "^8.10.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-prettier": "^4.0.0",
+        "jest": "^28.1.2",
         "prettier": "2.5.1",
         "rimraf": "^3.0.2",
+        "ts-jest": "^28.0.5",
         "typescript": "^4.7.4"
+    },
+    "dependencies": {
+        "@armathai/lego": "5.0.0"
     }
 }
