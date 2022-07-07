@@ -1,1 +1,0 @@
-export { lego } from './Lego';

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { AbstractLego } from '../AbstractLego';
-import { AbstractObserve } from './AbstractObserve';
+
+import { IAbstractLego, IAbstractObserve } from './types';
 
 function adjustEventName(str: string): string {
     const clean = str.replace(/[^0-9a-z-A-Z]/g, '').replace(/ +/, ' ');
@@ -8,12 +8,9 @@ function adjustEventName(str: string): string {
     return `${clean.charAt(0).toUpperCase()}${clean.slice(1)}`;
 }
 
-export class Observe extends AbstractObserve {
-    private _lego: AbstractLego;
-
-    public constructor(lego: AbstractLego) {
-        super();
-        this._lego = lego;
+export class Observe implements IAbstractObserve {
+    public constructor(private _lego: IAbstractLego) {
+        //
     }
 
     public makeObservable(obj: unknown & { uuid: unknown }, ...props: string[]): void {
@@ -22,8 +19,10 @@ export class Observe extends AbstractObserve {
         }
 
         for (const prop of props) {
+            // @ts-ignore
             const value = obj[prop];
 
+            // @ts-ignore
             if (delete obj[prop]) {
                 this.createObservable(obj, prop, value);
             }
@@ -32,12 +31,14 @@ export class Observe extends AbstractObserve {
 
     public removeObservable(obj: unknown, ...props: string[]): void {
         if (!props.length) {
-            props = Object.keys(obj);
+            props = Object.keys(obj as object);
         }
 
         for (const prop of props) {
+            // @ts-ignore
             const value = obj[prop];
 
+            // @ts-ignore
             if (delete obj[prop]) {
                 Object.defineProperty(obj, prop, {
                     configurable: true,

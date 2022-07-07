@@ -1,0 +1,32 @@
+{
+    "name": "@armathai/lego",
+    "version": "5.0.0",
+    "license": "MIT",
+    "source": "src/index.ts",
+    "main": "dist/index.js",
+    "author": "Armath LLC",
+    "files": [
+        "dist/**/*"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:armathai/lego.git"
+    },
+    "keywords": [
+        "MVC",
+        "lego",
+        "legologger"
+    ],
+    "homepage": "https://github.com/armathai/lego#readme",
+    "scripts": {
+        "_clean": "rimraf dist && rimraf tsconfig.tsbuildinfo",
+        "test": "jest --config jestconfig.json",
+        "lint": "npm run build && eslint 'src/**/*.{js,ts,ts}' --fix",
+        "build": "npm run _clean && tsc --build",
+        "prepublishOnly": "npm test && npm run lint"
+    },
+    "dependencies": {
+        "eventemitter3": "4.0.7"
+    },
+    "devDependencies": {}
+}

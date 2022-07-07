@@ -115,7 +115,7 @@ test('Command & sub command with payload and guard', () => {
         lego.command
             .guard(
                 () => true,
-                () => false,
+                () => false
             )
             .payload(theObj)
             .execute(() => {
@@ -147,7 +147,7 @@ test('Command & sub command with multiple payloads and guards', () => {
         lego.command
             .guard(
                 () => true,
-                () => false,
+                () => false
             )
             .payload(theObj)
             .execute(() => {

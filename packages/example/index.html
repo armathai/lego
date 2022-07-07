@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            overflow: hidden;
+            background-color: #cdcdcd;
+        }
+
+        p {
+            font-size: 24px;
+            text-align: center;
+            margin: auto;
+            width: 460px;
+            border: 2px solid green;
+            padding: 10px;
+        }
+
+        .board {
+            max-width: fit-content;
+            display: grid;
+            padding-top: 60px;
+            grid-template-columns: repeat(5, 1fr);
+            grid-gap: 10px;
+            justify-items: center;
+            align-items: center;
+            margin: auto;
+        }
+
+        .box {
+            background-color: #000000;
+            width: 80px;
+            height: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>click on green boxes</p>
+    <script type="module" src="./src/index.ts"></script>
+</body>
