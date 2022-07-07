@@ -1,6 +1,6 @@
 {
     "name": "@armathai/lego",
-    "version": "5.0.0",
+    "version": "5.0.1",
     "license": "MIT",
     "source": "src/index.ts",
     "main": "dist/index.js",
@@ -15,7 +15,7 @@
     "keywords": [
         "MVC",
         "lego",
-        "legologger"
+        "legoLogger"
     ],
     "homepage": "https://github.com/armathai/lego#readme",
     "scripts": {

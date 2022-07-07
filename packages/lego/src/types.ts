@@ -6,12 +6,6 @@ export type IGuard = (...args: any[]) => boolean;
 
 export type ICallback = (...args: any[]) => void;
 
-export interface IListener {
-    callback: ICallback;
-    context?: unknown;
-    once: boolean;
-}
-
 export interface IAbstractLego {
     readonly observe: IAbstractObserve;
     readonly event: IAbstractEmitter;
