@@ -2,25 +2,30 @@ name: Release
 
 on:
     push:
-        tags:
-            - 'v*.*.*'
+        branches:
+            - main
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
     build:
       runs-on: ubuntu-latest
       steps:
         - name: Checkout Repo
-          uses: actions/checkout@v1
+          uses: actions/checkout@v2
           with:
             fetch-depth: 0
+            
         - name: Setup Node
-          uses: actions/setup-node@v1
+          uses: actions/setup-node@v2
           with:
             node-version: '16.x'
             registry-url: 'https://registry.npmjs.org'
+
         - name: Install Dependencies
           run: npm install
-        - name: Create Release Pull Request
+
+        - name: Create Release
           uses: changesets/action@v1
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
