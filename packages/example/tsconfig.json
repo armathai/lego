@@ -10,20 +10,17 @@
         "strict": false,
 
         "baseUrl": ".",
-        "rootDir": "src",
-        "outDir": "dist",
+        "rootDir": "./src",
+        "outDir": "./dist",
 
         "target": "ES6",
         "module": "CommonJS",
         "moduleResolution": "Node",
         "esModuleInterop": true,
 
-        "sourceMap": true,
-        "declaration": true,
-        "removeComments": true,
+        "allowJs": true,
 
-        "experimentalDecorators": true,
-        "jsxImportSource": "preact",
-        "isolatedModules": true
+        "declaration": true,
+        "removeComments": true
     }
 }

@@ -1,0 +1,29 @@
+{
+    "baseBranch": "origin/main",
+    "pipeline": {
+        "@armathai/lego#start": {
+            "dependsOn": [],
+            "outputs": [],
+            "cache": false
+        },
+        "build": {
+            "dependsOn": ["^build"],
+            "outputs": [],
+            "cache": false
+        },
+        "test": {
+            "dependsOn": ["build"],
+            "outputs": [],
+            "cache": false
+        },
+        "lint": {
+            "outputs": [],
+            "cache": false
+        },
+        "prepublish": {
+            "dependsOn": ["build", "test", "lint"],
+            "outputs": [],
+            "cache": false
+        }
+    }
+}

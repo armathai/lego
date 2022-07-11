@@ -4,7 +4,8 @@
     "license": "MIT",
     "source": "src/index.ts",
     "main": "dist/index.js",
-    "author": "Armath LLC",
+    "author": "https://github.com/armathai",
+    "description": "Simple, scalable state management",
     "files": [
         "dist/**/*"
     ],
@@ -12,18 +13,19 @@
         "type": "git",
         "url": "git@github.com:armathai/lego.git"
     },
+    "bugs": {
+        "url": "https://github.com/armathai/lego/issues"
+    },
     "keywords": [
-        "MVC",
-        "lego",
-        "legoLogger"
+        "mvc",
+        "lego"
     ],
     "homepage": "https://github.com/armathai/lego#readme",
     "scripts": {
         "clean": "rimraf dist && rimraf tsconfig.tsbuildinfo",
         "test": "jest --config jestconfig.json",
         "lint": "eslint 'src/**/*.{js,ts,ts}'",
-        "build": "npm run clean && tsc --build",
-        "prepublish": "npm run build && npm run test && npm run lint"
+        "build": "npm run clean && tsc --build"
     },
     "dependencies": {
         "eventemitter3": "4.0.7"
