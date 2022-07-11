@@ -25,6 +25,9 @@ jobs:
         - name: Install Dependencies
           run: npm install
 
+        - name: Run Production Build
+          run: npm run prepublish
+
         - name: Create Release
           uses: changesets/action@v1
           env:
