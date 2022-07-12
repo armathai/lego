@@ -1,6 +1,6 @@
 {
     "name": "@armathai/lego",
-    "version": "5.0.3",
+    "version": "5.0.4",
     "license": "MIT",
     "source": "src/index.ts",
     "main": "dist/index.js",
