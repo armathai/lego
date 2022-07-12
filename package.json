@@ -10,7 +10,6 @@
         "test": "turbo run test --filter=!example",
         "lint": "turbo run lint --filter=!example",
         "prepublish": "turbo run prepublish --filter=!example --concurrency=1",
-        "publish": "npm run build && npx changeset publish",
         "changesetBump": "npx changeset"
     },
     "workspaces": {
