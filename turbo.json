@@ -1,7 +1,7 @@
 {
     "baseBranch": "main",
     "pipeline": {
-        "@armathai/lego#start": {
+        "start": {
             "dependsOn": [],
             "outputs": [],
             "cache": false
