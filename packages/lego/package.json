@@ -6,6 +6,7 @@
     "main": "dist/index.js",
     "author": "https://github.com/armathai",
     "description": "Simple, scalable state management",
+    "private": false,
     "files": [
         "dist/**/*"
     ],

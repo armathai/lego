@@ -6,6 +6,7 @@
     "main": "dist/index.js",
     "author": "https://github.com/armathai",
     "description": "Example for Lego",
+    "private": true,
     "scripts": {
         "start": "rimraf dist && parcel --port 8080"
     },
