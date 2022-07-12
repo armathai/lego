@@ -24,6 +24,11 @@
             "dependsOn": ["build", "test", "lint"],
             "outputs": [],
             "cache": false
+        },
+        "publish": {
+            "dependsOn": ["build", "changesetPublish"],
+            "outputs": [],
+            "cache": false
         }
     }
 }
