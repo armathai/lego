@@ -1,8 +1,6 @@
 {
     "extends": "../../tsconfig.json",
 
-    "references": [{ "path": "../lego" }],
-
     "include": ["src"],
     "exclude": [],
 
