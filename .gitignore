@@ -9,6 +9,7 @@
 !.github
 !.gitkeep
 !.changeset
+!.husky
 
 # ignore yarn plug'n'play file
 .pnp.*
