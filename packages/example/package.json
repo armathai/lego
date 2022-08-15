@@ -8,7 +8,7 @@
     "description": "Example for Lego",
     "private": true,
     "scripts": {
-        "start": "rimraf dist && parcel --port 8080"
+        "start": "rimraf dist && parcel --port 8080 --no-cache"
     },
     "dependencies": {
         "@armathai/lego": "*"

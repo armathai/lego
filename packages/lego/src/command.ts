@@ -31,26 +31,22 @@ export class Command implements IAbstractCommand {
 
         const passed = !guards.length || !guards.find((guard) => !guard(...payloads));
 
+        this._resetGuardsAndPayloads();
         if (passed) {
-            this._resetGuardsAndPayloads();
             this._payloads = [command(...payloads)];
-        } else {
-            this._resetGuardsAndPayloads();
         }
 
         return this;
     }
 
-    public async executeAsync(command: ICommand): Promise<this> {
+    public async executeAsync(command: ICommand): Promise<unknown> {
         const { _guards: guards, _payloads: payloads } = this;
 
         const passed = !guards.length || !guards.find((guard) => !guard(...payloads));
 
+        this._resetGuardsAndPayloads();
         if (passed) {
-            this._resetGuardsAndPayloads();
-            this._payloads = [await command(...this._payloads)];
-        } else {
-            this._resetGuardsAndPayloads();
+            return await command(...payloads);
         }
 
         return this;

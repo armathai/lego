@@ -20,5 +20,7 @@
 
         "declaration": true,
         "removeComments": true
-    }
+    },
+
+    "references": [{ "path": "../lego" }]
 }

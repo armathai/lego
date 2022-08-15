@@ -17,7 +17,7 @@ export interface IAbstractCommand {
     once(event: string, command: ICommand): this;
     off(event: string, command: ICommand): this;
     execute(command: ICommand): this;
-    executeAsync(command: ICommand): Promise<this>;
+    executeAsync(command: ICommand): Promise<unknown>;
     payload(...args: unknown[]): this;
     guard(...args: unknown[]): this;
 }
