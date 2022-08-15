@@ -1,5 +1,11 @@
 # @armathai/lego
 
+## 5.0.6
+
+### Patch Changes
+
+-   dfb778d: Async commands payloads fix
+
 ## 5.0.5
 
 ### Patch Changes
