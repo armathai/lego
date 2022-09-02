@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-export type ICommand = (...args: any[]) => void;
+export type ICommand = ((...args: any[]) => void) | ((...args: any[]) => Promise<void>);
 
 export type IGuard = (...args: any[]) => boolean;
 
