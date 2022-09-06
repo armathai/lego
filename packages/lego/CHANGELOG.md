@@ -1,5 +1,11 @@
 # @armathai/lego
 
+## 5.0.7
+
+### Patch Changes
+
+-   8255555: Extended ICommand interface to return "void" and "Promise" as well
+
 ## 5.0.6
 
 ### Patch Changes
