@@ -1,5 +1,11 @@
 # @armathai/lego
 
+## 5.0.8
+
+### Patch Changes
+
+-   565065f: Emitter on/off/once overloading
+
 ## 5.0.7
 
 ### Patch Changes
