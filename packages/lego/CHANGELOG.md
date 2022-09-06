@@ -1,5 +1,11 @@
 # @armathai/lego
 
+## 5.0.9
+
+### Patch Changes
+
+-   5be49cd: Extending IAbstractEmitter types
+
 ## 5.0.8
 
 ### Patch Changes
