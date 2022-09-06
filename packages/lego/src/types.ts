@@ -24,7 +24,22 @@ export interface IAbstractCommand {
 
 type EventEmitterType = import('eventemitter3');
 export interface IAbstractEmitter extends EventEmitterType {
-    removeListenersOf(context: unknown): void;
+    removeListenersOf(context: any): void;
+    on(event: string | symbol, fn: (...args: any[]) => void | Promise<void>, context?: any): this;
+    addListener(event: string | symbol, fn: (...args: any[]) => void | Promise<void>, context?: any): this;
+    once(event: string | symbol, fn: (...args: any[]) => void | Promise<void>, context?: any): this;
+    off(
+        event: string | symbol,
+        fn?: ((...args: any[]) => void | Promise<void>) | undefined,
+        context?: any,
+        once?: boolean | undefined
+    ): this;
+    removeListener(
+        event: string | symbol,
+        fn?: ((...args: any[]) => void | Promise<void>) | undefined,
+        context?: any,
+        once?: boolean | undefined
+    ): this;
 }
 
 export interface IAbstractObserve {
